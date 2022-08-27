@@ -5,7 +5,7 @@
 
 function galleryItemsMarkup(images) {
     return images.map((image) => {
-        return ` <div class="photo-card">
+        return `<div class="photo-card">
                     <a class="photo-card__link" href="${image.largeImageURL}">
                     <img class="photo-card__img" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
                     </a>

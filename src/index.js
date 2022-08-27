@@ -48,7 +48,7 @@ function onSearch(e) {
                 appendGalleryItemsMarkup(data.hits);
                 lightbox.refresh();
                 PixabayApiService.incrementPage();
-                refs.loadMoreBtn.classList.add('is-visible');
+                refs.loadMoreBtn.classList.remove('is-hidden');
                 return;
             }
     }).catch((error => console.log(error)));
@@ -59,23 +59,32 @@ function onLoadMore(e) {
     e.preventDefault();
     refs.galleryEl.innerHTML = '';
     PixabayApiService.fetchGallery().then(({ data }) => {
-        const lastImage = data.totalHits - (PixabayApiService.perPage * PixabayApiService.page);
-        appendGalleryItemsMarkup(data.hits);
-        lightbox.refresh();
-        //PixabayApiService.resetPage();
-        PixabayApiService.incrementPage();
+    appendGalleryItemsMarkup(data.hits);
+    lightbox.refresh();
+    //PixabayApiService.resetPage();
+    PixabayApiService.incrementPage();
+    const lastImage = data.totalHits - (PixabayApiService.perPage * PixabayApiService.page);
+        if (lastImage <= 0) {
+            refs.loadMoreBtn.classList.add('is-hidden');
+            return Notify.failure(`We're sorry, but you've reached the end of search results.`);
+            
+            
+            
 
+        }
+         
+      
+            
+        
         const { height: cardHeight } = refs.galleryEl.firstElementChild.getBoundingClientRect();
         window.scrollBy({
             top: cardHeight * 2,
             behavior: "smooth",
         });
-        if (lastImage <= 0) {
-            Notify.failure(`We're sorry, but you've reached the end of search results.`);
-            refs.loadMoreBtn.classList.add('is-hidden');
-
-        }
     }).catch((error) => console.log(error));
+    
+
+    
 }
     
 

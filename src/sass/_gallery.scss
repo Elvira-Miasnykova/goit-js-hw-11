@@ -36,7 +36,7 @@
         padding-bottom: 20px;
 
         background: linear-gradient(to right, rgb(134, 134, 223), rgb(22, 22, 104));
-        //color: rgb(22, 22, 104)
+        
     }
 
     input {
@@ -50,19 +50,20 @@
         border-radius: 3px;
         border: 1px, solid, black;
         cursor: pointer;
-        background-color: cornflowerblue;
+        font-weight: bold;
+        background: linear-gradient(to left, rgb(134, 134, 223), rgb(22, 22, 104));
+
+        transition: background-color 200ms linear;
     }
 
     .submit:hover,
     .load-more:hover{
         scale: 1.1;
-        background-color: #fafafa;
+        background: linear-gradient(to right, rgb(134, 134, 223), rgb(22, 22, 104));
     }
 
     .load-more{
-        // position: absolute;
-        // bottom: 20px;
-        // left:50%;
+       
         display: block;
         width:150px;
         
@@ -74,74 +75,79 @@
 
         border-radius: 5px;
         cursor: pointer;
-        background-color: cornflowerblue;
-        font-size: bold;
+        background:linear-gradient(to left, rgb(134, 134, 223), rgb(22, 22, 104));
+
+        font-weight: bold;
         outline: none;
         z-index: 90;
+
+        transition: background-color 200ms linear;
     }
 
+    .gallery-wrapper {
+        margin-top: 90px;
+    }
        
-        .gallery {
-            // position: relative;
-            // left: 0;
-            // top: 90px;
-            display: flex;
-            flex-wrap: wrap;
-            gap:15px;
-            margin-top: 150px;
-            margin-bottom: 50px;
-            justify-content: center;
-           
-            margin: -20px;
-        }
+    .gallery {
+        
+        display: flex;
+        flex-wrap: wrap;
+        gap:15px;
+        margin-top: 150px;
+        margin-bottom: 50px;
+        justify-content: center;
+        
+        margin: -15px;
+    }
 
-        .photo-card {
-            overflow: hidden;
-            flex-basis: calc(100% / 4 - 20px);
-            box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
-            border-radius: 0px 0px 4px 4px;
+    .photo-card {
+        overflow: hidden;
+        flex-basis: calc(100% / 4 - 30px);
+        margin: 15px;
+        box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+        border-radius: 0px 0px 4px 4px;
 
-        }
-    
-            
-        .photo-card__img:hover {
-            transform: scale(1.03);
-        }
-    
-        .photo-card__img {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-            transition: transform var(--animation-duration) var(--timing-function);
-        }
-    
-        .photo-card__link {
-            display: block;
-            text-decoration: none;
-           // height: 100%;
-        }
-    
-        .photo-card__link:hover {
-            cursor: zoom-in;
-        }
+    }
 
-        .info {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 10px;
-        }
+        
+    .photo-card__img:hover {
+        transform: scale(1.03);
+    }
 
-        .info-item {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
+    .photo-card__img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform var(--animation-duration) var(--timing-function);
+    }
 
-        .is-hidden {
-            display: none;
-        }
+    .photo-card__link {
+        display: block;
+        text-decoration: none;
+        // height: 100%;
+    }
 
-        .is-visible {
-            display: block;
-        }
+    .photo-card__link:hover {
+        cursor: zoom-in;
+    }
+
+    .info {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .is-hidden {
+        display: none;
+    }
+
+    // .is-visible {
+    //     display: block;
+    // }
