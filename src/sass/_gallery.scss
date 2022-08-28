@@ -1,153 +1,150 @@
- :root {
-     --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-     --animation-duration: 250ms;
- }
-*, *::before,
-*::after{
-        box-sizing: border-box;
-    }
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-            Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background-color: #fafafa;
-        color: #212121;
-        line-height: 1.5;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+}
 
-    img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-    }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
-    .search-form {
-        position: fixed;
-        width: 100vw;
-        left: 0;
-        top:0;
-        z-index: 99;
-       
-        display: flex;
-        justify-content: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
+.search-form {
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  z-index: 99;
 
-        background: linear-gradient(to right, rgb(134, 134, 223), rgb(22, 22, 104));
-        
-    }
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
-    input {
-        padding: 15px, 0, 15px, 15px;
-        outline: none;
-        border-radius: 3px;
-        border: 1px, solid, black;
-    }
+  background: linear-gradient(to right, rgb(134, 134, 223), rgb(22, 22, 104));
+}
 
-    .submit{
-        border-radius: 3px;
-        border: 1px, solid, black;
-        cursor: pointer;
-        font-weight: bold;
-        background: linear-gradient(to left, rgb(134, 134, 223), rgb(22, 22, 104));
+input {
+  padding: 15px, 0, 15px, 15px;
+  outline: none;
+  border-radius: 3px;
+  border: 1px, solid, black;
+}
 
-        transition: background-color 200ms linear;
-    }
+.submit {
+  border-radius: 3px;
+  border: 1px, solid, black;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(to left, rgb(134, 134, 223), rgb(22, 22, 104));
 
-    .submit:hover,
-    .load-more:hover{
-        scale: 1.1;
-        background: linear-gradient(to right, rgb(134, 134, 223), rgb(22, 22, 104));
-    }
+  transition: background-color 200ms linear;
+}
 
-    .load-more{
-       
-        display: block;
-        width:150px;
-        
-        margin-top: 80px;
-        margin-bottom: 40px;
-        margin-left: auto;
-        margin-right: auto;
-        //margin-top: 100px;
+.submit:hover,
+.load-more:hover {
+  scale: 1.1;
+  background: linear-gradient(to right, rgb(134, 134, 223), rgb(22, 22, 104));
+}
 
-        border-radius: 5px;
-        cursor: pointer;
-        background:linear-gradient(to left, rgb(134, 134, 223), rgb(22, 22, 104));
+.load-more {
+  display: block;
+  width: 150px;
 
-        font-weight: bold;
-        outline: none;
-        z-index: 90;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  //margin-top: 100px;
 
-        transition: background-color 200ms linear;
-    }
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(to left, rgb(134, 134, 223), rgb(22, 22, 104));
 
-    .gallery-wrapper {
-        margin-top: 90px;
-    }
-       
-    .gallery {
-        
-        display: flex;
-        flex-wrap: wrap;
-        gap:15px;
-        margin-top: 150px;
-        margin-bottom: 50px;
-        justify-content: center;
-        
-        margin: -15px;
-    }
+  font-weight: bold;
+  outline: none;
+  z-index: 90;
 
-    .photo-card {
-        overflow: hidden;
-        flex-basis: calc(100% / 4 - 30px);
-        margin: 15px;
-        box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
-        border-radius: 0px 0px 4px 4px;
+  transition: background-color 200ms linear;
+}
 
-    }
+.gallery-wrapper {
+  margin-top: 90px;
+}
 
-        
-    .photo-card__img:hover {
-        transform: scale(1.03);
-    }
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  //gap:15px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  justify-content:flex-start;
 
-    .photo-card__img {
-        height: 200px;
-        width: 100%;
-        object-fit: cover;
-        transition: transform var(--animation-duration) var(--timing-function);
-    }
+  margin: -10px;
+}
 
-    .photo-card__link {
-        display: block;
-        text-decoration: none;
-        // height: 100%;
-    }
+.photo-card {
+  overflow: hidden;
+  flex-basis: calc(100% / 4 - 20px);
+  margin: 10px;
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+  border-radius: 0px 0px 4px 4px;
+}
 
-    .photo-card__link:hover {
-        cursor: zoom-in;
-    }
+.photo-card__img:hover {
+  transform: scale(1.03);
+}
 
-    .info {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        padding: 10px;
-    }
+.photo-card__img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
 
-    .info-item {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
+.photo-card__link {
+  display: block;
+  text-decoration: none;
+  // height: 100%;
+}
 
-    .is-hidden {
-        display: none;
-    }
+.photo-card__link:hover {
+  cursor: zoom-in;
+}
 
-    // .is-visible {
-    //     display: block;
-    // }
+.info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.is-hidden {
+  display: none;
+}
+
+// .is-visible {
+//     display: block;
+// }

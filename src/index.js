@@ -1,5 +1,3 @@
-//import './css/styles.css';
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
@@ -42,15 +40,21 @@ function onSearch(e) {
             Notify.failure("Sorry, there are no images matching your search query. Please try again.");
             refs.loadMoreBtn.classList.add('is-hidden');
             return;
-        } else
-            if (data.hits.length <= PixabayApiService.perPage) {
-                Notify.info(`Hooray! We found ${data.totalHits} images.`);
-                appendGalleryItemsMarkup(data.hits);
-                lightbox.refresh();
-                PixabayApiService.incrementPage();
-                refs.loadMoreBtn.classList.remove('is-hidden');
-                return;
-            }
+        }
+        if (data.hits.length < PixabayApiService.perPage) {
+            Notify.info(`Hooray! We found ${data.totalHits} images.`);
+            appendGalleryItemsMarkup(data.hits);
+            lightbox.refresh();
+            //PixabayApiService.incrementPage();
+            refs.loadMoreBtn.classList.add('is-hidden');
+            return;
+        }
+        Notify.info(`Hooray! We found ${data.totalHits} images.`);
+            appendGalleryItemsMarkup(data.hits);
+            lightbox.refresh();
+            PixabayApiService.incrementPage();
+            refs.loadMoreBtn.classList.remove('is-hidden');
+
     }).catch((error => console.log(error)));
 };
 
